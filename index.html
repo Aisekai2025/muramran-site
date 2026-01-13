@@ -240,6 +240,17 @@
     margin: 0 auto 15px;
     border-radius: 10px;
 }
+        .char-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .char-list {
+        grid-template-columns: 1fr; /* スマホでは1列 */
+    }
+}
     </style>
 </head>
 <body>
