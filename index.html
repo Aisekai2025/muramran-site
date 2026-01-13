@@ -205,6 +205,41 @@
             .hero h2 { font-size: 1.4rem; }
             .link-list { grid-template-columns: 1fr; } /* スマホは1列 */
         }
+        .character-box {
+    margin-bottom: 20px;
+}
+
+.character-btn {
+    display: block;
+    width: 100%;
+    background-color: #7a4bd8;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.character-content {
+    display: none;
+    background: #f8f5ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.character-box.open .character-content {
+    display: block;
+}
+
+.character-illust {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto 15px;
+    border-radius: 10px;
+}
     </style>
 </head>
 <body>
