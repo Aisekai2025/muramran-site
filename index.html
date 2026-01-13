@@ -240,10 +240,25 @@
     margin: 0 auto 15px;
     border-radius: 10px;
 }
-        .char-list {
+.char-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+}
+
+.character-box {
+    width: 100%; /* ← これが重要 */
+}
+
+.character-btn {
+    display: block;
+    background-color: #7a4bd8;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center; /* ← 中央揃え */
 }
 
 @media (max-width: 600px) {
