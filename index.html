@@ -265,6 +265,26 @@
             object-fit: cover;
         }
 
+        /* --- 背景画像方式に上書き --- */
+.character-illust {
+    width: 100%;
+    height: 260px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* スマホ対応 */
+@media (max-width: 600px) {
+    .character-illust {
+        height: 200px;
+    }
+}
         /* --- 用語タグ --- */
         .term-list {
             display: flex;
@@ -467,7 +487,7 @@
                     <details class="character-item">
                         <summary>矢場奏羽（ルージュ）</summary>
                         <div class="character-content">
-                            <img src="images/mmn001e.png" alt="矢場奏羽" class="character-illust">
+                            <div src="images/mmn001e.png" alt="矢場奏羽" class="character-illust">
                             <p><strong>ムラムラン・ルージュ</strong></p>
                             <p>内に秘めた力を買われた最初の戦士。静かに燃える意志を持ち、仲間たちの中心となる存在。</p>
                         </div>
@@ -476,7 +496,7 @@
                     <details class="character-item">
                         <summary>貫鬼尋心（ウェーヴ）</summary>
                         <div class="character-content">
-                            <img src="images/mmn001f.png" alt="貫鬼尋心" class="character-illust">
+                            <div src="images/mmn001f.png" alt="貫鬼尋心" class="character-illust">
                             <p><strong>ムラムラン・ウェーヴ</strong></p>
                             <p>内に秘めた力を買われた第二の戦士。揺らぎの中に強さを宿し、流れるように戦場を駆ける。</p>
                         </div>
@@ -485,7 +505,7 @@
                     <details class="character-item">
                         <summary>心巣七緒（ゴールド）</summary>
                         <div class="character-content">
-                            <img src="images/mmn001g.png" alt="心巣七緒" class="character-illust">
+                            <div src="images/mmn001g.png" alt="心巣七緒" class="character-illust">
                             <p><strong>ムラムラン・ゴールド</strong></p>
                             <p>うっかりミスで誕生した第三の戦士。予想外の誕生ながら、明るさと柔軟さでチームを支える。</p>
                         </div>
@@ -494,7 +514,7 @@
                     <details class="character-item">
                         <summary>恫供全凛虹（シャドー）</summary>
                         <div class="character-content">
-                            <img src="images/mmn001h.png" alt="恫供全凛虹" class="character-illust">
+                            <div src="images/mmn001h.png" alt="恫供全凛虹" class="character-illust">
                             <p><strong>ムラムラン・シャドー</strong></p>
                             <p>心の闇に付け込まれて誕生した第四の戦士。影の奥に複雑な想いを抱えながらも、確かな力を持つ。</p>
                         </div>
