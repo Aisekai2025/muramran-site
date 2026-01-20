@@ -6,6 +6,19 @@
     <title>思春期戦士ムラムラン 公式ファンサイト（非公式）</title>
     <meta name="description" content="思春期戦士ムラムランの作品リンク・世界観まとめサイト">
     <style>
+        /* --- 変数定義（メンテナンス性向上） --- */
+        :root {
+            --primary: #7a4bd8;
+            --primary-gradient: linear-gradient(135deg, #8e5ce6, #6b3cc7);
+            --primary-light: #f8f5ff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --bg-body: #ffffff;
+            --border-radius: 12px;
+            --font-base: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            --font-display: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "HGS Mincho E", serif; /* 儀式性を演出する明朝体 */
+        }
+
         /* --- リセット & 基本設定 --- */
         * {
             box-sizing: border-box;
@@ -14,21 +27,18 @@
         }
 
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-family: var(--font-base);
             line-height: 1.8;
-            color: #333;
-            background-color: #ffffff;
+            color: var(--text-main);
+            background-color: var(--bg-body);
             font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: opacity 0.3s;
-        }
-
-        a:hover {
-            opacity: 0.7;
+            transition: all 0.3s ease;
         }
 
         ul {
@@ -37,73 +47,97 @@
 
         /* --- レイアウト --- */
         .container {
-            max-width: 800px;
+            max-width: 840px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 80px; /* 余白を増やして静けさを演出 */
         }
 
         /* --- ヘッダー --- */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
         }
 
         h1 {
-            font-size: 1.5rem;
-            color: #7a4bd8;
-            margin-bottom: 10px;
-            letter-spacing: 0.05em;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            letter-spacing: 0.08em;
+            font-weight: 600;
         }
 
         .subtitle {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: normal;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
         }
 
-        /* --- メインビジュアル（CSS帯） --- */
+        /* --- メインビジュアル --- */
         .hero {
-            background-color: #7a4bd8;
+            background: var(--primary-gradient);
             color: #fff;
             text-align: center;
-            padding: 60px 20px;
-            margin-bottom: 50px;
-            box-shadow: 0 4px 10px rgba(122, 75, 216, 0.2);
+            padding: 80px 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 20px rgba(122, 75, 216, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 儀式的な装飾（背景にうっすら円を配置） */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .hero h2 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 0.1em;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            position: relative;
+            z-index: 1;
         }
 
-        /* --- 見出しデザイン（儀式性×やさしさ） --- */
+        /* --- 見出しデザイン --- */
         .section-title {
             text-align: center;
-            font-size: 1.4rem;
-            color: #7a4bd8;
-            margin-bottom: 30px;
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 40px;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
+            font-weight: 500;
         }
 
-        /* 下線を二重線にして儀式っぽさを演出 */
+        /* 下線をより繊細に */
         .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            border-bottom: 3px double #7a4bd8;
+            width: 40px;
+            height: 1px;
+            border-bottom: 1px solid var(--primary);
+            border-top: 1px solid var(--primary);
+            padding-top: 3px; /* 二重線の間隔 */
         }
 
-        /* --- リンク集（重要セクション） --- */
+        /* --- リンク集 --- */
         .link-list {
             display: grid;
             gap: 20px;
@@ -114,13 +148,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #7a4bd8;
+            background-color: var(--primary);
             color: #fff;
-            padding: 20px;
-            border-radius: 50px; /* 角丸でやさしさを強調 */
+            padding: 22px;
+            border-radius: 50px;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(122, 75, 216, 0.2);
+            font-size: 1.05rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(122, 75, 216, 0.3);
+            background-color: #6b3cc7;
         }
 
         .link-btn span {
@@ -129,223 +171,249 @@
 
         /* --- 世界観 --- */
         .world-box {
-            background-color: #f8f5ff; /* 極薄い紫 */
-            padding: 30px;
-            border-radius: 15px;
+            background-color: var(--primary-light);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
         }
 
         .world-desc {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            line-height: 2.2;
         }
 
         h3 {
-            font-size: 1.1rem;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
             color: #5a32a8;
-            margin-bottom: 15px;
-            border-left: 4px solid #7a4bd8;
-            padding-left: 10px;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3::before {
+            content: '◆';
+            font-size: 0.8em;
+            color: var(--primary);
         }
 
-        .char-list, .term-list {
-            margin-bottom: 30px;
+        /* --- キャラクターリスト (Grid & Details) --- */
+        .char-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        /* detailsタグを使ったJS不要のアコーディオン */
+        .character-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid rgba(122, 75, 216, 0.1);
+        }
+
+        summary {
+            list-style: none; /* デフォルトの三角を消す */
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background-color: #fcfaff;
+        }
+
+        /* 開閉アイコン */
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: normal;
+            transition: transform 0.3s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg); /* + が × になる */
+        }
+
+        .character-content {
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .character-illust {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #eee; /* 画像読み込み前のプレースホルダー */
+            aspect-ratio: 16/9; /* 画像がない場合の崩れ防止 */
+            object-fit: cover;
+        }
+
+        /* --- 用語タグ --- */
+        .term-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .tag {
             background-color: #fff;
-            border: 1px solid #7a4bd8;
-            color: #7a4bd8;
-            padding: 5px 15px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 16px;
             border-radius: 20px;
             font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .tag:hover {
+            background-color: var(--primary);
+            color: #fff;
         }
 
         /* --- 最新エピソード --- */
         .episode-card {
-            border: 2px solid #7a4bd8;
-            padding: 30px;
+            border: 1px solid var(--primary);
+            padding: 40px;
             text-align: center;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .episode-status {
             display: inline-block;
-            background: #7a4bd8;
+            background: var(--primary);
             color: #fff;
-            padding: 5px 15px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
         }
 
         .episode-title {
-            font-size: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
             font-weight: bold;
-            margin-bottom: 15px;
-            color: #333;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        /* --- 生の力を未来へ（CSRセクション） --- */
+        .life-to-future {
+            padding: 40px;
+            background: #fafafa;
+            border-radius: var(--border-radius);
+            border: 1px solid #eaeaea;
+        }
+
+        .life-to-future h2 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-family: var(--font-display);
+        }
+
+        .ngo-intro {
+            margin-bottom: 25px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .ngo-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .ngo-item {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: border-color 0.2s;
+        }
+
+        .ngo-item:hover {
+            border-color: var(--primary);
+        }
+
+        .ngo-icon {
+            font-size: 1.4rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .ngo-category {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            color: #555;
+            min-width: 120px;
+        }
+
+        .ngo-links a {
+            color: #0056b3;
+            font-weight: 500;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        
+        .ngo-links a:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            text-align: right;
         }
 
         /* --- フッター --- */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             background-color: #f9f9f9;
             color: #888;
             font-size: 0.8rem;
             border-top: 1px solid #eee;
         }
 
-        /* --- スマホ向け調整 --- */
+        /* --- レスポンシブ調整 --- */
         @media (max-width: 600px) {
-            h1 { font-size: 1.3rem; }
-            .hero h2 { font-size: 1.4rem; }
-            .link-list { grid-template-columns: 1fr; } /* スマホは1列 */
+            .hero { padding: 60px 20px; }
+            .hero h2 { font-size: 1.5rem; }
+            .section-title { font-size: 1.4rem; }
+            
+            .ngo-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .ngo-category { margin-bottom: 5px; }
         }
-        .character-box {
-    margin-bottom: 20px;
-}
-
-.character-content {
-    display: none;
-    background: #f8f5ff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.character-box.open .character-content {
-    display: block;
-}
-
-.character-illust {
-    width: 100%;
-    max-width: 300px;
-    display: block;
-    margin: 0 auto 15px;
-    border-radius: 10px;
-}
-.char-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.character-box {
-    width: 100%; /* ← これが重要 */
-}
-
-.character-btn {
-    display: block;
-    background-color: #7a4bd8;
-    color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center; /* ← 中央揃え */
-}
-
-@media (max-width: 600px) {
-    .char-list {
-        grid-template-columns: 1fr; /* スマホでは1列 */
-    }
-}
-        /* 生の力を未来へ セクション */
-.life-to-future {
-    margin: 3rem 0;
-    padding: 2rem 1.5rem;
-    background: #fafafa;
-    border-radius: 8px;
-    border: 1px solid #e5e5e5;
-    line-height: 1.8;
-}
-
-/* 見出し */
-.life-to-future h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
-
-/* 見出しアイコン */
-.life-to-future h2 .icon {
-    font-size: 1.3em;
-    margin-right: 0.4rem;
-    vertical-align: middle;
-}
-
-/* テキスト */
-.life-to-future p {
-    margin: 0.5rem 0 1rem;
-    color: #444;
-}
-
-/* リスト */
-.life-to-future ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 1rem 0;
-}
-
-.life-to-future li {
-    margin: 0.6rem 0;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: flex-start;
-}
-
-/* リストアイコン */
-.life-to-future li .icon {
-    margin-right: 0.4rem;
-    font-size: 1.1em;
-    line-height: 1.2;
-}
-
-/* リンク */
-.life-to-future a {
-    color: #2b6cb0;
-    text-decoration: underline;
-    transition: 0.2s ease;
-}
-
-.life-to-future a:hover {
-    color: #1a4f85;
-    text-decoration: none;
-}
-
-/* 注意書き */
-.life-to-future .note {
-    font-size: 0.8rem;
-    color: #777;
-    margin-top: 1.5rem;
-}
-
-/* ▼ スマホ対応（レスポンシブ） */
-@media (max-width: 600px) {
-    .life-to-future {
-        padding: 1.5rem 1rem;
-        margin: 2rem 0;
-    }
-
-    .life-to-future h2 {
-        font-size: 1.15rem;
-    }
-
-    .life-to-future li {
-        font-size: 0.9rem;
-    }
-
-    .life-to-future .note {
-        font-size: 0.75rem;
-    }
-}
     </style>
 </head>
 <body>
@@ -364,24 +432,23 @@
     <div class="container">
         
         <!-- 作品リンク集 -->
-<section id="links">
-    <h2 class="section-title">作品リンク</h2>
-    <div class="link-list">
-        <a href="https://www.youtube.com/@aisekai6430/shorts" class="link-btn" target="_blank" rel="noopener noreferrer">
-            YouTube（本編）
-        </a>
-        <a href="https://www.freem.ne.jp/brand/2664" class="link-btn" target="_blank" rel="noopener noreferrer">
-            ふりーむ！（ゲーム）
-        </a>
-        <a href="https://suzuri.jp/AiSekai2" class="link-btn" target="_blank" rel="noopener noreferrer">
-            SUZURI（グッズ）
-        </a>
-        <a href="https://bsky.app/profile/diversityworld.bsky.social" class="link-btn" target="_blank" rel="noopener noreferrer">
-            Bluesky（実況紹介）
-        </a>
-    </div>
-</section>
-
+        <section id="links">
+            <h2 class="section-title">作品リンク</h2>
+            <div class="link-list">
+                <a href="https://www.youtube.com/@aisekai6430/shorts" class="link-btn" target="_blank" rel="noopener noreferrer">
+                    <span>YouTube（本編）</span>
+                </a>
+                <a href="https://www.freem.ne.jp/brand/2664" class="link-btn" target="_blank" rel="noopener noreferrer">
+                    <span>ふりーむ！（ゲーム）</span>
+                </a>
+                <a href="https://suzuri.jp/AiSekai2" class="link-btn" target="_blank" rel="noopener noreferrer">
+                    <span>SUZURI（グッズ）</span>
+                </a>
+                <a href="https://bsky.app/profile/diversityworld.bsky.social" class="link-btn" target="_blank" rel="noopener noreferrer">
+                    <span>Bluesky（実況紹介）</span>
+                </a>
+            </div>
+        </section>
 
         <!-- 世界観の入口 -->
         <section id="world">
@@ -394,42 +461,45 @@
                 </div>
 
                 <h3>主要キャラクター</h3>
-                <div class="character-box" onclick="this.classList.toggle('open')">
-    <div class="character-btn">矢場奏羽</div>
-    <div class="character-content">
-        <img src="images/mmn001e.png" alt="矢場奏羽" class="character-illust">
-        <p>ムラムラン・ルージュ</p>
-        <p>内に秘めた力を買われた最初の戦士</p>
-        <p>静かに燃える意志を持ち、仲間たちの中心となる存在</p>
-    </div>
-</div>
-                 <div class="character-box" onclick="this.classList.toggle('open')">
-    <div class="character-btn">貫鬼尋心</div>
-    <div class="character-content">
-        <img src="images/mmn001f.png" alt="貫鬼尋心" class="character-illust">
-        <p>ムラムラン・ウェーヴ</p>
-        <p>内に秘めた力を買われた第二の戦士</p>
-        <p>揺らぎの中に強さを宿し、流れるように戦場を駆ける</p>
-    </div>
-</div>
-                 <div class="character-box" onclick="this.classList.toggle('open')">
-    <div class="character-btn">心巣七緒</div>
-    <div class="character-content">
-        <img src="images/mmn001g.png" alt="心巣七緒" class="character-illust">
-        <p>ムラムラン・ゴールド</p>
-        <p>うっかりミスで誕生した第三の戦士</p>
-        <p>予想外の誕生ながら、明るさと柔軟さでチームを支える</p>
-    </div>
-</div>
-                 <div class="character-box" onclick="this.classList.toggle('open')">
-    <div class="character-btn">恫供全凛虹</div>
-    <div class="character-content">
-        <img src="images/mmn001h.png" alt="恫供全凛虹" class="character-illust">
-        <p>ムラムラン・シャドー</p>
-        <p>心の闇に付け込まれて誕生した第四の戦士</p>
-        <p>影の奥に複雑な想いを抱えながらも、確かな力を持つ</p>
-    </div>
-</div>
+                <!-- JSを使わず details/summary タグで実装 -->
+                <div class="char-list-grid">
+                    
+                    <details class="character-item">
+                        <summary>矢場奏羽（ルージュ）</summary>
+                        <div class="character-content">
+                            <img src="images/mmn001e.png" alt="矢場奏羽" class="character-illust">
+                            <p><strong>ムラムラン・ルージュ</strong></p>
+                            <p>内に秘めた力を買われた最初の戦士。静かに燃える意志を持ち、仲間たちの中心となる存在。</p>
+                        </div>
+                    </details>
+
+                    <details class="character-item">
+                        <summary>貫鬼尋心（ウェーヴ）</summary>
+                        <div class="character-content">
+                            <img src="images/mmn001f.png" alt="貫鬼尋心" class="character-illust">
+                            <p><strong>ムラムラン・ウェーヴ</strong></p>
+                            <p>内に秘めた力を買われた第二の戦士。揺らぎの中に強さを宿し、流れるように戦場を駆ける。</p>
+                        </div>
+                    </details>
+
+                    <details class="character-item">
+                        <summary>心巣七緒（ゴールド）</summary>
+                        <div class="character-content">
+                            <img src="images/mmn001g.png" alt="心巣七緒" class="character-illust">
+                            <p><strong>ムラムラン・ゴールド</strong></p>
+                            <p>うっかりミスで誕生した第三の戦士。予想外の誕生ながら、明るさと柔軟さでチームを支える。</p>
+                        </div>
+                    </details>
+
+                    <details class="character-item">
+                        <summary>恫供全凛虹（シャドー）</summary>
+                        <div class="character-content">
+                            <img src="images/mmn001h.png" alt="恫供全凛虹" class="character-illust">
+                            <p><strong>ムラムラン・シャドー</strong></p>
+                            <p>心の闇に付け込まれて誕生した第四の戦士。影の奥に複雑な想いを抱えながらも、確かな力を持つ。</p>
+                        </div>
+                    </details>
+
                 </div>
 
                 <h3>重要用語</h3>
@@ -452,44 +522,55 @@
             </div>
         </section>
 
-    <section class="life-to-future">
-  <hr>
+        <!-- CSR（社会的責任）セクション -->
+        <section class="life-to-future">
+            <h2><span style="margin-right:10px;">🌱</span>生の力を未来へ</h2>
+            <p class="ngo-intro">
+                ムラムランシリーズは、多様な生命と生き方を尊重する理念のもと、中立的で公益性の高い活動を応援しています。
+            </p>
 
-  <h2><span class="icon">🌱</span> 生の力を未来へ</h2>
-  <p>
-    ムラムランシリーズは、多様な生命と生き方を尊重する理念のもと、
-    中立的で公益性の高い活動を応援しています。
-  </p>
+            <div class="ngo-list">
+                <div class="ngo-item">
+                    <span class="ngo-icon">🌿</span>
+                    <span class="ngo-category">自然保護</span>
+                    <div class="ngo-links">
+                        <a href="https://www.worldwildlife.org/" target="_blank" rel="noopener noreferrer">WWF</a>
+                        <a href="https://www.conservation.org/" target="_blank" rel="noopener noreferrer">Conservation Int.</a>
+                    </div>
+                </div>
 
-  <ul>
-    <li>
-      <span class="icon">🌿</span> 自然保護：
-      <a href="https://www.worldwildlife.org/" target="_blank" rel="noopener noreferrer">WWF</a> /
-      <a href="https://www.conservation.org/" target="_blank" rel="noopener noreferrer">Conservation International</a>
-    </li>
-    <li>
-      <span class="icon">🌍</span> 人権と多様性：
-      <a href="https://www.unicef.org/" target="_blank" rel="noopener noreferrer">UNICEF</a> /
-      <a href="https://www.hrw.org/" target="_blank" rel="noopener noreferrer">Human Rights Watch</a>
-    </li>
-    <li>
-      <span class="icon">❤️</span> 国際的な公益活動：
-      <a href="https://www.givewell.org/" target="_blank" rel="noopener noreferrer">GiveWell</a> /
-      <a href="https://www.globalgiving.org/" target="_blank" rel="noopener noreferrer">GlobalGiving</a>
-    </li>
-    <li>
-      <span class="icon">🇯🇵</span> 日本国内の公益支援：
-      <a href="https://donation.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">Yahoo!ネット募金</a> /
-      <a href="https://readyfor.jp/" target="_blank" rel="noopener noreferrer">READYFOR</a>
-    </li>
-  </ul>
+                <div class="ngo-item">
+                    <span class="ngo-icon">🌍</span>
+                    <span class="ngo-category">人権と多様性</span>
+                    <div class="ngo-links">
+                        <a href="https://www.unicef.org/" target="_blank" rel="noopener noreferrer">UNICEF</a>
+                        <a href="https://www.hrw.org/" target="_blank" rel="noopener noreferrer">Human Rights Watch</a>
+                    </div>
+                </div>
 
-  <p class="note">
-    ※特定の思想・宗教・政治に依存しない団体のみを掲載しています。
-  </p>
+                <div class="ngo-item">
+                    <span class="ngo-icon">❤️</span>
+                    <span class="ngo-category">国際公益活動</span>
+                    <div class="ngo-links">
+                        <a href="https://www.givewell.org/" target="_blank" rel="noopener noreferrer">GiveWell</a>
+                        <a href="https://www.globalgiving.org/" target="_blank" rel="noopener noreferrer">GlobalGiving</a>
+                    </div>
+                </div>
 
-  <hr>
-</section>
+                <div class="ngo-item">
+                    <span class="ngo-icon">🇯🇵</span>
+                    <span class="ngo-category">日本国内支援</span>
+                    <div class="ngo-links">
+                        <a href="https://donation.yahoo.co.jp/" target="_blank" rel="noopener noreferrer">Yahoo!ネット募金</a>
+                        <a href="https://readyfor.jp/" target="_blank" rel="noopener noreferrer">READYFOR</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="note">
+                ※特定の思想・宗教・政治に依存しない団体のみを掲載しています。
+            </p>
+        </section>
 
     </div>
 
